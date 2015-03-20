@@ -1,0 +1,87 @@
+<% import com.careerbuilder.gitbugs.sca.BugReportReader.CategoryAndSize %>
+<%@ val loc: Int %>
+<%@ val classes: Int %>
+<%@ val packages: Int %>
+<%@ val hptotal: Int %>
+<%@ val mptotal: Int %>
+<%@ val categories: Array[CategoryAndSize] %>
+<%@ val projectName: String %>
+
+<h2>Project Information</h2>
+<p>Project: 
+		</p>
+<p>Code analyzed:</p>
+<ul>
+<li>SchoolServiceAPI</li>
+</ul>
+<p>
+<br/>
+<br/>
+</p>
+<h2>Metrics</h2>
+<p> <%= loc %> lines of code analyzed,
+	in <%= classes %> classes, 
+	in <%= packages %> packages.</p>
+<script>
+$(document).ready(function() {
+  $('table.highchart').highchartTable();
+});
+</script>
+<table width="500" style="display:none;" cellpadding="5" cellspacing="2" class="highchart" data-graph-container-before="1" data-graph-type="column" 
+                   data-graph-margin-right="550">
+<thead class="tableheader">
+  <th align="left">Metric</th>
+  <th align="right">Total</th>
+ </thead>
+<tbody>
+  <tr class="tablerow0">
+  <td>High Priority Warnings</td>
+  <td align="right"><%= hptotal %></td>
+  </tr>
+  <tr class="tablerow1">
+  <td>Medium Priority Warnings</td>
+  <td align="right"><%= mptotal %></td>
+  </tr>
+</tbody>
+<tr class="$totalClass">
+<td>
+<b>Total Warnings</b>
+</td>
+<td align="right">
+<b>61</b>
+</td>
+<td align="right">
+<b>24.25</b>
+</td>
+</tr>
+</table>
+
+<h1>Summary</h1>
+<table class="highchart" style="display:none;" width="500" cellpadding="5" cellspacing="2" data-graph-container-before="1" data-graph-type="pie" 
+                   data-graph-margin-right="550" data-graph-datalabels-enabled="1">
+<thead class="tableheader">
+<th align="left">Warning Type</th>
+<th align="right">Number</th>
+</thead>
+<tbody>
+
+<%  for ( x <- 0 to categories.length-1)    {   %>  
+
+ <tr class="tablerow0">
+<td>
+<a href="#Warnings<%= categories(x).name %>"><%= categories(x).name %></a>
+</td>
+<td align="right" data-graph-name="<%= categories(x).name %>"><%= categories(x).size %></td>
+</tr>
+
+<%  }   %>
+</tbody>
+</table>
+<%  for ( x <- 0 to categories.length-1)    {   %>  
+
+<a href="/category?project=<%= projectName %>&category=<%= categories(x).name %>"><%= categories(x).name %></a>
+<br/>
+<%  }   %>
+
+</table>
+

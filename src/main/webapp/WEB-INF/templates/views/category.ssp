@@ -1,0 +1,37 @@
+<% import com.careerbuilder.gitbugs.sca.BugReportReader.CategoryDescription %>
+<%@ val categories: Array[CategoryDescription] %>
+
+<h2>Project Information</h2>
+<script type="text/javascript">
+  function toggleRow(elid) {
+    if (document.getElementById) {
+      element = document.getElementById(elid);
+      if (element) {
+        if (element.style.display == 'none') {
+          element.style.display = 'block';
+          //window.status = 'Toggle on!';
+        } else {
+          element.style.display = 'none';
+          //window.status = 'Toggle off!';
+        }
+      }
+    }
+  }
+</script>
+<link rel="stylesheet" type="text/css" href="out.css"/>
+<table class="warningtable" width="100%" cellspacing="0">
+<tr class="tableheader">
+<th align="left">Code</th>
+<th align="left">Warning</th>
+</tr>
+<%  for ( x <- 0 to categories.length-1)    {   %>  
+
+ <tr class="tablerow1">
+<td>
+<span class="priority-2"><%= categories(x).content %></span>
+</td>
+<td><%= categories(x).sourcePath %></td>
+</tr>
+
+<%  }   %>
+</table>

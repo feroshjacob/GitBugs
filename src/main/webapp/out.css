@@ -1,0 +1,41 @@
+.tablerow0 {
+  background: #EEEEEE;
+}
+
+.tablerow1 {
+  background: white;
+}
+
+.detailrow0 {
+  background: #EEEEEE;
+}
+
+.detailrow1 {
+  background: white;
+}
+
+.tableheader {
+  background: #b9b9fe;
+  font-size: larger;
+}
+
+.tablerow0:hover, .tablerow1:hover {
+  background: #aaffaa;
+}
+
+.priority-1 {
+  color: red;
+  font-weight: bold;
+}
+.priority-2 {
+  color: orange;
+  font-weight: bold;
+}
+.priority-3 {
+  color: green;
+  font-weight: bold;
+}
+.priority-4 {
+  color: blue;
+  font-weight: bold;
+}

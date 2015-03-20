@@ -1,0 +1,14 @@
+  <%@ val body: String %>
+ 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script src="jquery-1.11.2.min.js" type="text/javascript"></script>
+<script src="highcharts.js" type="text/javascript"></script>
+<script src="jquery.highchartTable-min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="out.css"/>
+<head>
+<title>FindBugs Report</title>
+</head>
+    <body>
+      <%= unescape(body) %>
+    </body>
+  </html>

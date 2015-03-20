@@ -1,0 +1,7 @@
+ <h2>Hello Gitbugs!</h2>
+ <center>
+        <form action="analyze" method='POST'>
+        Github Repository URL <input name="githuburl" type='text'/>
+        <input type='submit'/>
+        </form>
+        </center>
